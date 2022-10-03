@@ -1,0 +1,48 @@
+@use "../../index.scss" as index;
+$box-color: #1131af;
+$box-background: #0b217b;
+
+.LandingContianer {
+  .ContentGrid {
+    min-height: 88vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .Box {
+      width: 20vw;
+      height: 40vh;
+      display: flex;
+      border-radius: 7px;
+      align-items: center;
+      justify-content: center;
+      transition: ease-in-out;
+      background-color: $box-color;
+      &:hover {
+        transform: scale(1.02);
+        background-color: #0b217b;
+      }
+      h2 {
+        font-size: 20px;
+        font-weight: bold;
+        color: index.$base-color;
+      }
+    }
+  }
+  .ContentGrid > * {
+    margin-left: 10px;
+  }
+}
+
+@media screen and (max-width: "600px") {
+  .LandingContianer {
+    .ContentGrid {
+      gap: 20px;
+      margin-top: 20px;
+      flex-direction: column;
+      .Box {
+        width: 60vw;
+        height: 60vh;
+      }
+    }
+  }
+}

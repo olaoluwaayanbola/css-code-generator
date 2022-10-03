@@ -1,0 +1,44 @@
+@use "../../index" as index;
+
+.NavContainer {
+  width: 100vw;
+  height: 12vh;
+  color: index.$base-color;
+  border-bottom: 1px solid index.$base-color;
+  background-color: index.$base-backgroundColor;
+  .elementsDiv {
+    width: 95vw;
+    margin: auto;
+    display: flex;
+    height: inherit;
+    .DarkMode,
+    .HamburgerTitle {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    .HamburgerTitle {
+      .icon {
+        width: 25px;
+        height: 70px;
+        margin-right: 10px;
+        transition: ease-in-out;
+        &:hover {
+          cursor: pointer;
+          transform: scale(1.03);
+        }
+      }
+      h3 {
+        color: index.$base-color;
+      }
+    }
+    .DarkMode {
+      justify-content: flex-end;
+    }
+    .DarkMode > * {
+      margin-right: 10px;
+      font-size: 18px;
+    }
+  }
+}

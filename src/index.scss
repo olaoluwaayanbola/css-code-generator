@@ -1,0 +1,9 @@
+$base-backgroundColor: #251b25;
+$base-color: #eeebeb;
+body {
+  margin: 0;
+  min-width:100%;
+  color: $base-color;
+  background-color: $base-backgroundColor !important;
+  box-sizing: border-box;
+}
