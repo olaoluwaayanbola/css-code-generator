@@ -9,7 +9,7 @@ export const Toggler = () => {
   console.log(dark)
   return (
     <>
-      <Switch onClick={trigger} style={{background:"lightblue"}}/>
+      <Switch onClick={trigger} style={{background:"#122675"}}/>
     </>
   )
 }

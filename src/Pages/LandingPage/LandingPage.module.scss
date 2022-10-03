@@ -1,6 +1,8 @@
 @use "../../index.scss" as index;
-$box-color: #1131af;
-$box-background: #0b217b;
+// Normal color
+$box-color: #0c2796;
+// hover color
+$box-background: #0b217b; 
 
 .LandingContianer {
   .ContentGrid {
