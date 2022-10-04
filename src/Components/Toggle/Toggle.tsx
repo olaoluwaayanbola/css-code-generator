@@ -6,10 +6,9 @@ import { contextFirst } from '../../Context/Context'
 export const Toggler = () => {
   const first: any = useContext(contextFirst)
   const { dark, trigger } = first
-  console.log(dark)
   return (
     <>
-      <Switch onClick={trigger} style={{background:"#122675"}}/>
+      <Switch onClick={trigger} style={{background:"#526edd"}}/>
     </>
   )
 }
