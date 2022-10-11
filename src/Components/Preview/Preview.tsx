@@ -6,20 +6,19 @@ import { contextFirst } from "../../Context/Context"
 
 interface Props {
     form: any;
-    setForm: React.Dispatch<React.SetStateAction<string>>
+    setForm?: React.Dispatch<React.SetStateAction<string>>
 }
-export const Preview = ({ form, setForm }: Props) => {
+export const Preview = ({ form }: Props) => {
     const Contextdata = useContext(contextFirst)
     const { color, code, setCode, handleSeleted } = Contextdata
     const [copy, setCopy] = useState<boolean>(false)
-    console.log(form)
     useMemo(() => {
         setCode([`${handleSeleted == "Yes" ? `inset` : " "} ${form.Horizontaloffset}px ${form.Verticaloffset}px ${form.Spread}px ${form.Blur}px ${color}`])
     }, [color, form, handleSeleted])
 
     const handlecopy: () => void = (): void => {
         setCopy(true)
-        navigator.clipboard.writeText(`box-shadow: ${code[0]}`)
+        navigator.clipboard.writeText(`box-shadow: ${code[0]} \n -webkit-box-shadow: ${code[0]}}`)
     }
     return (
         <div className={PreviewStyle.PreviewContainer}>
@@ -50,7 +49,11 @@ export const Preview = ({ form, setForm }: Props) => {
                             })
                         } */}
                         {
-                           `box-shadow:` + code[0]
+                            `box-shadow:` + code[0]
+                        }
+                        <br />
+                        {
+                            `-webkit-box-shadow:` + code[0]
                         }
                     </code>
                     <div className={PreviewStyle.Icon}>
