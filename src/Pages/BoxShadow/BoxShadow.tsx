@@ -1,20 +1,25 @@
-import React from 'react'
+import React, { useState, useContext } from 'react'
 import BoxShadowStyle from "./BoxShadow.module.scss"
 import { Preview } from "../../Components/Preview/Preview"
+import { Controls } from "../../Components/Controls/BoxShadowControls"
 import { Navigation } from "../../Components/Navigation/Navigation"
+import { contextFirst } from '../../Context/Context'
+
 export const BoxShadow = () => {
+  const boxContext = useContext(contextFirst)
+  const { form, setForm } = boxContext
   return (
-    <div>
+    <div className={BoxShadowStyle.BoxShadowContainer}>
       <div className={BoxShadowStyle.Navigation}>
         <Navigation />
       </div>
       <div className={BoxShadowStyle.Main}>
-        <div className={BoxShadowStyle.Controls}>
-
-        </div>
-        <div className={BoxShadowStyle.Display}>
-          <div className={BoxShadowStyle.styleDisplay}>
-            <Preview />
+        <div className={BoxShadowStyle.flexContainer}>
+          <div className={BoxShadowStyle.Controls}>
+            <Controls />
+          </div>
+          <div className={BoxShadowStyle.Display}>
+            <Preview form={form} setForm={setForm} />
           </div>
         </div>
       </div>

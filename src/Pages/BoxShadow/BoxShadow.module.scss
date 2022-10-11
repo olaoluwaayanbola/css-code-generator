@@ -1,0 +1,31 @@
+.BoxShadowContainer {
+  .Main {
+    padding-top: 20px;
+    .flexContainer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .Controls {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 1 0 45vw;
+      }
+      .Display {
+        flex: 1 0 52vw;
+        display: flex;
+        // justify-content: center;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: "500px") {
+  .BoxShadowContainer {
+    .Main {
+      .flexContainer {
+        flex-direction:column;
+      }
+    }
+  }
+}

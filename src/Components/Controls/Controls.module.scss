@@ -1,0 +1,62 @@
+@use "../Preview/Preview.module.scss" as preview;
+@mixin headerh3 {
+  font-size: 18px;
+  color: whitesmoke;
+  font-weight: 600;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+.ControlsContainer {
+  height: 93vh;
+  width: 100%;
+  .ControlBox {
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    width: inherit;
+    padding-left: 28px;
+    border-radius: 3px;
+    h2 {
+      @include preview.headerStyle;
+    }
+  }
+  .Select {
+    .colorConatainer {
+      position: relative;
+      .Hexcolor {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        width: 100px;
+        height: 100px;
+        align-items: center;
+        justify-content: flex-start;
+      }
+      .colorPicker {
+        width: 90%;
+        height: 30.2px;
+        color: black;
+        border-radius: 2px;
+        padding: 4px 0 0 10px;
+        background-color: white;
+      }
+    }
+    .Selectitems,
+    .input {
+      width: 90%;
+    }
+    h3 {
+      @include headerh3;
+    }
+  }
+}
+
+@media screen and (max-width: "600px") {
+  .ControlsContainer {
+    .ControlBox {
+      min-width: 100vw;
+      padding-left: 20px;
+    }
+  }
+}
