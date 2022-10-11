@@ -1,4 +1,4 @@
-.BoxShadowContainer {
+.Container {
   .Main {
     padding-top: 20px;
     .flexContainer {
@@ -12,9 +12,10 @@
         flex: 1 0 45vw;
       }
       .Display {
+        width: 100vw;
         flex: 1 0 52vw;
         display: flex;
-        // justify-content: center;
+        justify-content: center;
       }
     }
   }

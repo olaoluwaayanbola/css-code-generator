@@ -3,6 +3,7 @@ interface Props {
     children: React.ReactNode
 }
 interface Form {
+    inset:String,
     Horizontaloffset: number,
     Verticaloffset: number,
     Blur: number,
@@ -12,9 +13,11 @@ interface Form {
 export const contextFirst: React.Context<any> = createContext({})
 export const FirstContext = ({ children }: Props) => {
     const [code, setCode] = useState<any[]>([])
+    const [handleSeleted, setSelected]: any = useState("No")
     const [dark, setDark] = useState<boolean>(false)
-    const [color, setColor] = useState(`#ffff`)
+    const [color, setColor] = useState(`#b9b3b3`)
     const [form, setForm] = useState<Form>({
+        inset:"No",
         Horizontaloffset: 0,
         Verticaloffset: 0,
         Blur: 0,
@@ -32,7 +35,9 @@ export const FirstContext = ({ children }: Props) => {
             form,
             setForm,
             color,
-            setColor
+            setColor,
+            handleSeleted,
+            setSelected
         }}>
             {children}
         </contextFirst.Provider>

@@ -1,19 +1,19 @@
-import React, { useState } from 'react'
 import 'antd/dist/antd.css';
-import { Select } from 'antd';
 import { useContext } from "react"
-import { HexColorPicker } from "react-colorful";
+import React, { useState } from 'react'
+import { ChromePicker } from 'react-color'
 import ControlStyle from "./Controls.module.scss"
 import { contextFirst } from "../../Context/Context"
 
 
 export const Controls = () => {
-  const { Option } = Select;
-  const boxContext = useContext(contextFirst)
-  const [color, setColor] = useState(`#ffff`)
-  const { form, setForm } = boxContext
-  const [colortruth, setColortruth] = useState(false)
+  const boxContext = useContext<any>(contextFirst)
+  const [colortruth, setColortruth] = useState<boolean>(false)
+  const { color, setColor, form, setForm, handleSeleted, setSelected }: any = boxContext
 
+  const handleColorChange = (color: any): void => {
+    setColor(color.hex)
+  }
   const handlecolordisplay = (): void => {
     setColortruth(prev => !prev)
   }
@@ -21,6 +21,11 @@ export const Controls = () => {
     setForm({ ...form, [event.currentTarget.name]: event.currentTarget.value })
     console.log(form)
   }
+
+  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>): void => {
+    setSelected(event.currentTarget.value)
+  }
+  console.log(handleSeleted)
   return (
     <div className={ControlStyle.ControlsContainer}>
       <div className={ControlStyle.ControlBox}>
@@ -29,28 +34,28 @@ export const Controls = () => {
         </div>
         <div className={ControlStyle.Select}>
           <h3>Inset</h3>
-          <Select
+          <select
             className={ControlStyle.Selectitems}
-            style={{ background: "red" }}
-            defaultValue="No"
+            value={handleSeleted}
+            onChange={handleChange}
           >
-            <Option value="Yes">Yes</Option>
-            <Option value="No">No</Option>
-          </Select>
-
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
           <h3>Color</h3>
-          <div className={ControlStyle.colorConatainer}>
+          <div className={ControlStyle.colorConatainer} >
             {
               colortruth &&
-              <HexColorPicker
-                color={color}
-                onChange={setColor}
+              <ChromePicker
                 className={ControlStyle.Hexcolor}
+                color={color}
+                onChangeComplete={handleColorChange}
               />
             }
             <div
               className={ControlStyle.colorPicker}
               onClick={handlecolordisplay}
+              style={{ background: `${color}` }}
             >
               {color}
             </div>

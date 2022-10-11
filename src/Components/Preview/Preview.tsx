@@ -1,31 +1,30 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useState, useContext, useMemo } from 'react'
 import { FaClipboard } from "react-icons/fa"
 import { FaClipboardCheck } from "react-icons/fa"
 import PreviewStyle from "./Preview.module.scss"
 import { contextFirst } from "../../Context/Context"
 
 interface Props {
-    form:any;
-    setForm:React.Dispatch<React.SetStateAction<string>>
+    form: any;
+    setForm?: React.Dispatch<React.SetStateAction<string>>
 }
-export const Preview = ({ form, setForm }:Props) => {
+export const Preview = ({ form }: Props) => {
     const Contextdata = useContext(contextFirst)
-    const { code, setCode } = Contextdata
+    const { color, code, setCode, handleSeleted } = Contextdata
     const [copy, setCopy] = useState<boolean>(false)
-    console.log(form)
-    useEffect(() => {
-        setCode([`${form.Horizontaloffset}px ${form.Verticaloffset}px ${form.Spread}px ${form.Blur}px #fb1111`])
-    }, [form])
+    useMemo(() => {
+        setCode([`${handleSeleted == "Yes" ? `inset` : " "} ${form.Horizontaloffset}px ${form.Verticaloffset}px ${form.Spread}px ${form.Blur}px ${color}`])
+    }, [color, form, handleSeleted])
 
     const handlecopy: () => void = (): void => {
         setCopy(true)
-        navigator.clipboard.writeText(`${code[0]}`)
+        navigator.clipboard.writeText(`box-shadow: ${code[0]} \n -webkit-box-shadow: ${code[0]}}`)
     }
     return (
         <div className={PreviewStyle.PreviewContainer}>
             <div className={PreviewStyle.MainContainer}>
                 <span>
-                    <h2> Preview</h2>
+                    <h2>Preview</h2>
                 </span>
                 <div className={PreviewStyle.Content}>
                     <div className={PreviewStyle.PreviewContent} style={{ boxShadow: `${code}` }}>
@@ -46,11 +45,15 @@ export const Preview = ({ form, setForm }:Props) => {
                                         </div>
                                     </>
                                 )
-
+<span className={PreviewStyle.box_color}></span>
                             })
                         } */}
                         {
-                            `background:` + code[0]
+                            `box-shadow:` + code[0]
+                        }
+                        <br />
+                        {
+                            `-webkit-box-shadow:` + code[0]
                         }
                     </code>
                     <div className={PreviewStyle.Icon}>

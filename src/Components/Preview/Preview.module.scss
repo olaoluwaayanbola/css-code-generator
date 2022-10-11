@@ -6,15 +6,13 @@
   color: whitesmoke;
 }
 $border-radius: 2px;
-$preview-color: rgba(0, 6, 70, 0.854);
-$code-color: rgba(75, 89, 235, 0.856);
+$preview-color: rgba(1, 5, 48, 0.917);
+$code-color: rgb(62, 153, 233);
 
 .PreviewContainer {
-  min-width: 92%;
+  width: 92%;
   height: 93vh;
   display: flex;
-  // align-items: center;
-  // justify-content: center;
   .MainContainer {
     display: flex;
     gap: 20px;
@@ -32,7 +30,7 @@ $code-color: rgba(75, 89, 235, 0.856);
       background-color: $preview-color;
       .PreviewContent {
         min-width: 95%;
-        height: 85%;
+        height: 89%;
         background: index.$base-color;
         border-radius: 2px;
       }
@@ -50,9 +48,15 @@ $code-color: rgba(75, 89, 235, 0.856);
       color: index.$base-color;
       border-radius: $border-radius;
       background: rgb(12, 12, 12);
+      .box_color{
+        box-shadow:   0px 0px 0px 0px #b9b3b3 ;
+        
+        color:rgb(159, 35, 35)
+      }
       code {
         height: 100%;
         flex: 1 0 95%;
+        font-size: 15px;
         display: flex;
         padding-left: 10px;
         align-items: center;
