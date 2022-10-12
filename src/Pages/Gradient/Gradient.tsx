@@ -6,7 +6,7 @@ import { Navigation } from '../../Components/Navigation/Navigation'
 import { Controls } from "../../Components/Controls/BoxShadowControls"
 export const Gradient = () => {
   const boxContext = useContext(contextFirst)
-  const { form, setForm } = boxContext
+  const { form } = boxContext
   return (
     <div className={GradientStyle.Container}>
       <div className={GradientStyle.Navigation}>
@@ -18,7 +18,7 @@ export const Gradient = () => {
             <Controls />
           </div>
           <div className={GradientStyle.Display}>
-            <Preview form={form} />
+            <Preview form={form} type="Gradient"/>
           </div>
         </div>
       </div>

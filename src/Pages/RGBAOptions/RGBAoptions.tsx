@@ -19,7 +19,7 @@ export const RGBAoptions = () => {
             <RGBAControls />
           </div>
           <div className={GradientStyle.Display}>
-            <Preview form={form} type={false}/>
+            <Preview form={form} type="background-color"/>
           </div>
         </div>
       </div>

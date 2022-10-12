@@ -1,13 +1,13 @@
-import React, {useContext } from 'react'
+import React, { useContext } from 'react'
 import { contextFirst } from '../../Context/Context'
 import { Preview } from "../../Components/Preview/Preview"
-import BoxShadowStyle from"../Main stylesheet/Main.module.scss"
+import BoxShadowStyle from "../Main stylesheet/Main.module.scss"
 import { Controls } from "../../Components/Controls/BoxShadowControls"
 import { Navigation } from "../../Components/Navigation/Navigation"
 
 export const BoxShadow = () => {
   const boxContext = useContext(contextFirst)
-  const { form, setForm} = boxContext
+  const { form, setForm } = boxContext
   return (
     <div className={BoxShadowStyle.Container}>
       <div className={BoxShadowStyle.Navigation}>
@@ -19,7 +19,7 @@ export const BoxShadow = () => {
             <Controls />
           </div>
           <div className={BoxShadowStyle.Display}>
-            <Preview form={form} setForm={setForm} type={true} />
+            <Preview form={form} setForm={setForm} type="box-shadow" />
           </div>
         </div>
       </div>
