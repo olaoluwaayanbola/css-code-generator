@@ -17,6 +17,7 @@ export const Preview = ({ form, type }: Props) => {
     useMemo(() => {
         setCode([`${handleSeleted == "Yes" ? `inset` : " "} ${form.Horizontaloffset}px ${form.Verticaloffset}px ${form.Spread}px ${form.Blur}px ${color}`])
     }, [color, form, handleSeleted])
+
     const handlecopy: () => void = (): void => {
         setCopy(true)
         switch (type) {
@@ -36,6 +37,46 @@ export const Preview = ({ form, type }: Props) => {
                 console.log(null)
         }
     }
+    const CssType: any = () => {
+        let design
+        switch (type) {
+            case "box-shadow":
+                design = <div className={PreviewStyle.PreviewContent} style={{ boxShadow: `${code}` }}></div>
+                break;
+            case "background-color":
+                design = <div className={PreviewStyle.PreviewContent} style={{ backgroundColor: `${color}` }}></div>
+                break;
+            case "Transform":
+                // design = <div className={PreviewStyle.PreviewContent} style={{ transform:` scale(1.3) rotate(120deg) translate(-38px, -14px) skew(-63deg, 39deg)`}}></div>
+                break;
+            case "Gradient":
+                design = navigator.clipboard.writeText(`Gradient: ${color}`)
+                break;
+            default:
+                console.log(null)
+        }
+        return design
+    }
+    const Code = () => {
+        let codeblock
+        switch (type) {
+            case "box-shadow":
+                codeblock = <code>{`box-shadow:` + code[0]}<br />{`-webkit-box-shadow:` + code[0]}</code>
+                break;
+            case "background-color":
+                codeblock = <code>{`background-color: ${color}`}</code>
+                break;
+            case "Transform":
+                codeblock = <code>{`Transform: ${code[0]}`}<br />{`-webkit-box-shadow:` + code[0]}</code>
+                break;
+            case "Gradient":
+                codeblock = <code>{`box-shadow:` + code[0]}<br />{`-webkit-box-shadow:` + code[0]}</code>
+                break;
+            default:
+                console.log(null)
+        }
+        return codeblock
+    }
     return (
         <div className={PreviewStyle.PreviewContainer}>
             <div className={PreviewStyle.MainContainer}>
@@ -43,25 +84,13 @@ export const Preview = ({ form, type }: Props) => {
                     <h2>Preview</h2>
                 </span>
                 <div className={PreviewStyle.Content}>
-                    {
-                        type ?
-                            <div className={PreviewStyle.PreviewContent} style={{ boxShadow: `${code}` }}></div>
-                            :
-                            <div className={PreviewStyle.PreviewContent} style={{ backgroundColor: `${color}` }}></div>
-                    }
+                    {CssType()}
                 </div>
                 <span>
                     <h2>Code</h2>
                 </span>
                 <div className={PreviewStyle.Code}>
-                    {
-                        type ?
-                            <code>
-                                {`box-shadow:` + code[0]}<br />{`-webkit-box-shadow:` + code[0]}
-                            </code>
-                            :
-                            <code>{`background-color: ${color}`}</code>
-                    }
+                    {Code()}
                     <div className={PreviewStyle.Icon}>
                         {copy ? <FaClipboardCheck /> : <FaClipboard onClick={handlecopy} />}
                     </div>
