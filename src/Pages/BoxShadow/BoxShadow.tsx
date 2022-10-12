@@ -7,7 +7,7 @@ import { Navigation } from "../../Components/Navigation/Navigation"
 
 export const BoxShadow = () => {
   const boxContext = useContext(contextFirst)
-  const { form, setForm } = boxContext
+  const { form, setForm} = boxContext
   return (
     <div className={BoxShadowStyle.Container}>
       <div className={BoxShadowStyle.Navigation}>
@@ -19,7 +19,7 @@ export const BoxShadow = () => {
             <Controls />
           </div>
           <div className={BoxShadowStyle.Display}>
-            <Preview form={form} setForm={setForm} />
+            <Preview form={form} setForm={setForm} type={true} />
           </div>
         </div>
       </div>

@@ -3,8 +3,9 @@ import GradientStyle from "../Main stylesheet/Main.module.scss"
 import { contextFirst } from '../../Context/Context'
 import { Preview } from '../../Components/Preview/Preview'
 import { Navigation } from '../../Components/Navigation/Navigation'
-import { Controls } from "../../Components/Controls/BoxShadowControls"
+import { RGBAControls } from '../../Components/Controls/RGBAControls'
 export const RGBAoptions = () => {
+  let type = 'background'
   const boxContext = useContext(contextFirst)
   const { form, setForm } = boxContext
   return (
@@ -15,10 +16,10 @@ export const RGBAoptions = () => {
       <div className={GradientStyle.Main}>
         <div className={GradientStyle.flexContainer}>
           <div className={GradientStyle.Controls}>
-            <Controls />
+            <RGBAControls />
           </div>
           <div className={GradientStyle.Display}>
-            <Preview form={form} />
+            <Preview form={form} type={false}/>
           </div>
         </div>
       </div>
