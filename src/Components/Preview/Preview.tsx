@@ -13,19 +13,29 @@ export const Preview = ({ form, type }: Props) => {
     const Contextdata = useContext(contextFirst)
     const { color, code, setCode, handleSeleted } = Contextdata
     const [copy, setCopy] = useState<boolean>(false)
+
     useMemo(() => {
         setCode([`${handleSeleted == "Yes" ? `inset` : " "} ${form.Horizontaloffset}px ${form.Verticaloffset}px ${form.Spread}px ${form.Blur}px ${color}`])
     }, [color, form, handleSeleted])
-
     const handlecopy: () => void = (): void => {
         setCopy(true)
-        navigator.clipboard.writeText(`box-shadow: ${code[0]} \n -webkit-box-shadow: ${code[0]}}`)
+        switch (type) {
+            case "box-shadow":
+                navigator.clipboard.writeText(`box-shadow: ${code[0]} \n -webkit-box-shadow: ${code[0]}}`)
+                break;
+            case "background-color":
+                navigator.clipboard.writeText(`background-color: ${color}`)
+                break;
+            case "Transform":
+                navigator.clipboard.writeText(`Transform: ${color}`)
+                break;
+            case "Gradient":
+                navigator.clipboard.writeText(`Gradient: ${color}`)
+                break;
+            default:
+                console.log(null)
+        }
     }
-    const handlebackground: () => void = (): void => {
-        setCopy(true)
-        navigator.clipboard.writeText(`background-color: ${color}`)
-    }
-    console.log(type)
     return (
         <div className={PreviewStyle.PreviewContainer}>
             <div className={PreviewStyle.MainContainer}>
@@ -53,7 +63,7 @@ export const Preview = ({ form, type }: Props) => {
                             <code>{`background-color: ${color}`}</code>
                     }
                     <div className={PreviewStyle.Icon}>
-                        {copy ? <FaClipboardCheck /> : type ? <FaClipboard onClick={handlecopy} /> : <FaClipboard onClick={handlebackground} /> }
+                        {copy ? <FaClipboardCheck /> : <FaClipboard onClick={handlecopy} />}
                     </div>
                 </div>
             </div>
