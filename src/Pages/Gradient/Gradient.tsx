@@ -15,10 +15,10 @@ export const Gradient = () => {
       <div className={GradientStyle.Main}>
         <div className={GradientStyle.flexContainer}>
           <div className={GradientStyle.Controls}>
-            <Controls />
+            <Controls / >
           </div>
           <div className={GradientStyle.Display}>
-            <Preview form={form} type="Gradient"/>
+            <Preview form={form} />
           </div>
         </div>
       </div>

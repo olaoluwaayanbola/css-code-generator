@@ -1,18 +1,17 @@
+import React from 'react'
 import 'antd/dist/antd.css';
 import { useContext } from "react"
-import React, { useState } from 'react'
-import { ChromePicker } from 'react-color'
 import ControlStyle from "./Controls.module.scss"
 import { contextFirst } from "../../Context/Context"
 
 
 export const TransformControls = () => {
   const boxContext = useContext<any>(contextFirst)
-  const {  form, setForm }: any = boxContext
+  const { TransForm,setTransForm }: any = boxContext
 
   const Handleform = (event: React.FormEvent<HTMLInputElement>): void => {
-    setForm({ ...form, [event.currentTarget.name]: event.currentTarget.value })
-    console.log(form)
+    setTransForm ({ ...TransForm, [event.currentTarget.name]: event.currentTarget.value })
+    console.log(TransForm)
   }
 
   return (
@@ -26,63 +25,68 @@ export const TransformControls = () => {
           <input
             type="number"
             id="points"
-            name="Blur"
+            name="Scale"
             onChange={Handleform}
             className={ControlStyle.input}
           />
+
           <h3>Rotate</h3>
           <input
             type="range"
             id="points"
-            name="Verticaloffset"
-            min="-100"
-            max="100"
-            onChange={Handleform}
-            className={ControlStyle.input}
-          />
-          <h3>Translate X</h3>
-          <input
-            type="range"
-            id="points"
-            name="Spread"
-            min="0"
-            max="100"
-            onChange={Handleform}
-            className={ControlStyle.input}
-          />
-          <h3>Translate Y</h3>
-          <input
-            type="range"
-            id="points"
-            name="Horizontaloffset"
-            min="-100"
-            max="100"
-            onChange={Handleform}
-            className={ControlStyle.input}
-          />
-          <h3>Skew X</h3>
-          <input
-            type="range"
-            id="points"
-            name="Spread"
-            min="0"
-            max="100"
-            onChange={Handleform}
-            className={ControlStyle.input}
-          />
-          <h3>Skew Y</h3>
-          <input
-            type="range"
-            id="points"
-            name="Horizontaloffset"
+            name="Rotate"
             min="-100"
             max="100"
             onChange={Handleform}
             className={ControlStyle.input}
           />
 
+          <h3>Translate X</h3>
+          <input
+            type="range"
+            id="points"
+            name="TranslateX"
+            min="0"
+            max="100"
+            onChange={Handleform}
+            className={ControlStyle.input}
+          />
+
+          <h3>Translate Y</h3>
+          <input
+            type="range"
+            id="points"
+            name="TranslateY"
+            min="-100"
+            max="100"
+            onChange={Handleform}
+            className={ControlStyle.input}
+          />
+
+          <h3>Skew X</h3>
+          <input
+            type="range"
+            id="points"
+            name="SkewX"
+            min="0"
+            max="100"
+            onChange={Handleform}
+            className={ControlStyle.input}
+          />
+
+          <h3>Skew Y</h3>
+          <input
+            type="range"
+            id="points"
+            name="SkewY"
+            min="-100"
+            max="100"
+            onChange={Handleform}
+            className={ControlStyle.input}
+          />
         </div>
       </div>
     </div>
   )
 }
+

@@ -11,7 +11,7 @@ interface Props {
 }
 export const Preview = ({ form, type }: Props) => {
     const Contextdata = useContext(contextFirst)
-    const { color, code, setCode, handleSeleted } = Contextdata
+    const { color, code, setCode, handleSeleted,TransForm } = Contextdata
     const [copy, setCopy] = useState<boolean>(false)
 
     useMemo(() => {
@@ -28,7 +28,7 @@ export const Preview = ({ form, type }: Props) => {
                 navigator.clipboard.writeText(`background-color: ${color}`)
                 break;
             case "Transform":
-                navigator.clipboard.writeText(`Transform: ${color}`)
+                navigator.clipboard.writeText(`Transform:scale(${TransForm.Scale}) rotate(${TransForm.Rotate}deg) translate(${TransForm.TranslateX}px, ${TransForm.TranslateY}px) skew(${TransForm.SkewY}deg, ${TransForm.SkewX}deg)`)
                 break;
             case "Gradient":
                 navigator.clipboard.writeText(`Gradient: ${color}`)
@@ -47,7 +47,7 @@ export const Preview = ({ form, type }: Props) => {
                 design = <div className={PreviewStyle.PreviewContent} style={{ backgroundColor: `${color}` }}></div>
                 break;
             case "Transform":
-                // design = <div className={PreviewStyle.PreviewContent} style={{ transform:` scale(1.3) rotate(120deg) translate(-38px, -14px) skew(-63deg, 39deg)`}}></div>
+                design = <div className={PreviewStyle.PreviewContent} style={{ transform:` scale(${TransForm.Scale}) rotate(${TransForm.Rotate}deg) translate(${TransForm.TranslateX}px, ${TransForm.TranslateY}px) skew(${TransForm.SkewY}deg, ${TransForm.SkewX}deg)`}}></div>
                 break;
             case "Gradient":
                 design = navigator.clipboard.writeText(`Gradient: ${color}`)
@@ -57,6 +57,7 @@ export const Preview = ({ form, type }: Props) => {
         }
         return design
     }
+    console.log(TransForm.Rotate)
     const Code = () => {
         let codeblock
         switch (type) {
@@ -67,7 +68,7 @@ export const Preview = ({ form, type }: Props) => {
                 codeblock = <code>{`background-color: ${color}`}</code>
                 break;
             case "Transform":
-                codeblock = <code>{`Transform: ${code[0]}`}<br />{`-webkit-box-shadow:` + code[0]}</code>
+                codeblock = <code>{`transform: scale(${TransForm.Scale}) rotate(${TransForm.Rotate}deg) translate(${TransForm.TranslateX}px, ${TransForm.TranslateY}px) skew(${TransForm.SkewY}deg, ${TransForm.SkewX}deg)`}</code>
                 break;
             case "Gradient":
                 codeblock = <code>{`box-shadow:` + code[0]}<br />{`-webkit-box-shadow:` + code[0]}</code>
