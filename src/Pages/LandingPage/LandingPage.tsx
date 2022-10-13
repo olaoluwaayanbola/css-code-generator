@@ -1,4 +1,3 @@
-import React from 'react'
 import Landing from "./LandingPage.module.scss"
 import { Link } from "react-router-dom"
 import { Navigation } from '../../Components/Navigation/Navigation'

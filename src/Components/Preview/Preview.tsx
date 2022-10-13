@@ -57,7 +57,6 @@ export const Preview = ({ form, type }: Props) => {
         }
         return design
     }
-    console.log(TransForm.Rotate)
     const Code = () => {
         let codeblock
         switch (type) {
