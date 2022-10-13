@@ -11,9 +11,17 @@ interface Props {
 }
 export const Preview = ({ form, type }: Props) => {
     const Contextdata = useContext(contextFirst)
-    const { color, code, setCode, handleSeleted,TransForm } = Contextdata
+    const {
+        color,
+        code,
+        setCode,
+        handleSeleted,
+        TransForm,
+        Handlecolors,
+        Handlecolorstwo,
+        Handlecolorsthree,
+    } = Contextdata
     const [copy, setCopy] = useState<boolean>(false)
-
     useMemo(() => {
         setCode([`${handleSeleted == "Yes" ? `inset` : " "} ${form.Horizontaloffset}px ${form.Verticaloffset}px ${form.Spread}px ${form.Blur}px ${color}`])
     }, [color, form, handleSeleted])
@@ -31,7 +39,7 @@ export const Preview = ({ form, type }: Props) => {
                 navigator.clipboard.writeText(`Transform:scale(${TransForm.Scale}) rotate(${TransForm.Rotate}deg) translate(${TransForm.TranslateX}px, ${TransForm.TranslateY}px) skew(${TransForm.SkewY}deg, ${TransForm.SkewX}deg)`)
                 break;
             case "Gradient":
-                navigator.clipboard.writeText(`Gradient: ${color}`)
+                navigator.clipboard.writeText(`background:linear-gradient(${Handlecolorsthree}deg,${Handlecolors.background} 0%, ${Handlecolorstwo.background} 80%)`)
                 break;
             default:
                 console.log(null)
@@ -47,10 +55,10 @@ export const Preview = ({ form, type }: Props) => {
                 design = <div className={PreviewStyle.PreviewContent} style={{ backgroundColor: `${color}` }}></div>
                 break;
             case "Transform":
-                design = <div className={PreviewStyle.PreviewContent} style={{ transform:` scale(${TransForm.Scale}) rotate(${TransForm.Rotate}deg) translate(${TransForm.TranslateX}px, ${TransForm.TranslateY}px) skew(${TransForm.SkewY}deg, ${TransForm.SkewX}deg)`}}></div>
+                design = <div className={PreviewStyle.PreviewContent} style={{ transform: ` scale(${TransForm.Scale}) rotate(${TransForm.Rotate}deg) translate(${TransForm.TranslateX}px, ${TransForm.TranslateY}px) skew(${TransForm.SkewY}deg, ${TransForm.SkewX}deg)` }}></div>
                 break;
             case "Gradient":
-                design = navigator.clipboard.writeText(`Gradient: ${color}`)
+                design = <div className={PreviewStyle.PreviewContent} style={{ background: `linear-gradient(${Handlecolorsthree}deg,${Handlecolors.background} 0%, ${Handlecolorstwo.background} 80%)` }}></div>
                 break;
             default:
                 console.log(null)
@@ -70,7 +78,7 @@ export const Preview = ({ form, type }: Props) => {
                 codeblock = <code>{`transform: scale(${TransForm.Scale}) rotate(${TransForm.Rotate}deg) translate(${TransForm.TranslateX}px, ${TransForm.TranslateY}px) skew(${TransForm.SkewY}deg, ${TransForm.SkewX}deg)`}</code>
                 break;
             case "Gradient":
-                codeblock = <code>{`box-shadow:` + code[0]}<br />{`-webkit-box-shadow:` + code[0]}</code>
+                codeblock = <code>{`background: linear-gradient(${Handlecolorsthree}deg,${Handlecolors.background} 0%, ${Handlecolorstwo.background} 80%)`}</code>
                 break;
             default:
                 console.log(null)

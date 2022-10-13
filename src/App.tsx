@@ -7,7 +7,7 @@ import { LandingPage } from './Pages/LandingPage/LandingPage';
 import { RGBAoptions } from './Pages/RGBAOptions/RGBAoptions';
 function App() {
   return (
-    <div className={AppStyle.App}>
+    <div className={AppStyle.App} >
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/RGBA" element={<RGBAoptions />} />

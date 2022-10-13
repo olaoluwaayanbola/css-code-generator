@@ -1,10 +1,14 @@
 import Landing from "./LandingPage.module.scss"
 import { Link } from "react-router-dom"
+import React, { useContext } from 'react'
+import { contextFirst } from '../../Context/Context'
 import { Navigation } from '../../Components/Navigation/Navigation'
 
 export const LandingPage = () => {
+  const darkMode = useContext(contextFirst)
+  const { dark } = darkMode
   return (
-    <div className={Landing.LandingContianer}>
+    <div className={Landing.LandingContianer} style={{ background: `${dark ? "#251b25":"#d1d1d1"}` }}>
       <div className={Landing.Navigation}>
         <Navigation />
       </div>

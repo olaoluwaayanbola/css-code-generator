@@ -19,13 +19,11 @@ export const BorderRadius = () => {
   }
   const Handleform = (event: React.FormEvent<HTMLInputElement>): void => {
     setForm({ ...form, [event.currentTarget.name]: event.currentTarget.value })
-    console.log(form)
   }
 
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>): void => {
     setSelected(event.currentTarget.value)
   }
-  console.log(handleSeleted)
   return (
     <div className={ControlStyle.ControlsContainer}>
       <div className={ControlStyle.ControlBox}>
