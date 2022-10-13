@@ -41,6 +41,16 @@
         }
       }
     }
+    .MapContainer {
+      width:90%;
+      display: flex;
+      margin-top:10px;
+      justify-content: space-between;
+      .StyleBlocks {
+        height: 80px;
+        width: 80px;
+      }
+    }
     .Selectitems,
     .input {
       width: 90%;

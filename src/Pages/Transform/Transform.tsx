@@ -3,7 +3,7 @@ import GradientStyle from "../Main stylesheet/Main.module.scss"
 import { contextFirst } from '../../Context/Context'
 import { Preview } from '../../Components/Preview/Preview'
 import { Navigation } from '../../Components/Navigation/Navigation'
-import { Controls } from '../../Components/Controls/BoxShadowControls'
+import { TransformControls } from '../../Components/Controls/TransformControl'
 export const Transform = () => {
   const boxContext = useContext(contextFirst)
   const { form, setForm } = boxContext
@@ -15,7 +15,7 @@ export const Transform = () => {
       <div className={GradientStyle.Main}>
         <div className={GradientStyle.flexContainer}>
           <div className={GradientStyle.Controls}>
-            <Controls />
+            <TransformControls />
           </div>
           <div className={GradientStyle.Display}>
             <Preview form={form} type="Transform" />
