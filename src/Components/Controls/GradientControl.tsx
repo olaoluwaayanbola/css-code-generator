@@ -1,20 +1,28 @@
 import 'antd/dist/antd.css';
 import { useContext } from "react"
-import React, { useState } from 'react'
-import { ChromePicker } from 'react-color'
+import { HuePicker } from 'react-color'
 import ControlStyle from "./Controls.module.scss"
 import { contextFirst } from "../../Context/Context"
-
+import CircularSlider from '@fseehawer/react-circular-slider';
 
 export const GradientControls = () => {
     const boxContext = useContext<any>(contextFirst)
-    const [colortruth, setColortruth] = useState<boolean>(false)
-    const { color, setColor, form, setForm, handleSeleted, setSelected }: any = boxContext
+    const {
+        Handlecolors,
+        SetColors,
+        Handlecolorstwo,
+        SetColorstwo,
+        Handlecolorsthree,
+        SetColorsthree
+    } = boxContext
     const handleColorChange = (color: any): void => {
-        setColor(color.hex)
+        SetColors({ background: color.hex })
     }
-    const handlecolordisplay = (): void => {
-        setColortruth(prev => !prev)
+    const handleColorChangetwo = (color: any): void => {
+        SetColorstwo({ background: color.hex })
+    }
+    const handleColorChangethree = (event: React.FormEvent<HTMLInputElement>): void => {
+        SetColorsthree(event.currentTarget.value)
     }
     const StyleBlocks = [
         { flow: "to right", type: "linear-gradient" },
@@ -30,49 +38,58 @@ export const GradientControls = () => {
                     <h2>Options</h2>
                 </div>
                 <div className={ControlStyle.Select}>
-                    <h3>Middle Transition</h3>
+                    <h3>Degree Transition</h3>
                     <input
                         type="range"
                         id="points"
                         name="Blur"
                         min="1"
-                        max="100"
+                        max="360"
+                        onChange={handleColorChangethree}
                         className={ControlStyle.input}
                     />
                     <h3>Color</h3>
                     <div className={ControlStyle.colorConatainer} >
-                        {
-                            colortruth &&
-                            <ChromePicker
-                                className={ControlStyle.Hexcolor}
-                                color={color}
+                        <div className={ControlStyle.Pickerone}>
+                            <HuePicker
+                                width={"90%"}
+                                color={Handlecolors.background}
                                 onChangeComplete={handleColorChange}
                             />
-                        }
-                        <div
-                            className={ControlStyle.colorPicker}
-                            onClick={handlecolordisplay}
-                            style={{ background: `${color}` }}
-                        >
-                            {color}
                         </div>
+                        <br />
+                        <div className={ControlStyle.Pickertwo}>
+                            <HuePicker
+                                width={"90%"}
+                                color={Handlecolorstwo.background}
+                                onChangeComplete={handleColorChangetwo}
+                            />
+                        </div>
+                        <br />
+                        {/* <div className={ControlStyle.Pickerthree}>
+                            <HuePicker
+                                width={"90%"}
+                                color={Handlecolorsthree.background}
+                                onChangeComplete={handleColorChangethree}
+                            />
+                        </div> 
                     </div>
                     <div className={ControlStyle.MapContainer}>
-                        {
-                            StyleBlocks.map((items, index) => {
-                                return (
-                                    <div
-                                        className={ControlStyle.StyleBlocks}
-                                        key={index}
-                                        onClick={() => { }}
-                                        style={{
-                                            background: `${items.type}(${items.flow}, #CE5937 0%, #3CA497 56%, #C59237 100%)`
-                                        }}>
-
-                                    </div>
-                                )
-                            })
-                        }
+                        <CircularSlider
+                            width={270}
+                            knobColor="#005a58"
+                            progressColorFrom="#00bfbd"
+                            progressColorTo="#009c9a"
+                            
+                            trackColor="#eeeeee"
+                            labelFontSize={"20"}
+                            appendToValue={"%"}
+                            min={0}
+                            max={360}
+                            dataIndex={75}
+                            onChange={(x: any) => { console.log(x) }}
+                        />
+                    */}
                     </div>
                 </div>
             </div>

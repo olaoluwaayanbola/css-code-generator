@@ -48,10 +48,10 @@ $code-color: rgb(62, 153, 233);
       color: index.$base-color;
       border-radius: $border-radius;
       background: rgb(12, 12, 12);
-      .box_color{
-        box-shadow:   0px 0px 0px 0px #b9b3b3 ;
-        
-        color:rgb(159, 35, 35)
+      .box_color {
+        box-shadow: 0px 0px 0px 0px #b9b3b3;
+
+        color: rgb(159, 35, 35);
       }
       code {
         height: 100%;
@@ -77,4 +77,3 @@ $code-color: rgb(62, 153, 233);
     }
   }
 }
-

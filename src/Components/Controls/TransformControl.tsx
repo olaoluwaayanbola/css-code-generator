@@ -11,7 +11,6 @@ export const TransformControls = () => {
 
   const Handleform = (event: React.FormEvent<HTMLInputElement>): void => {
     setTransForm ({ ...TransForm, [event.currentTarget.name]: event.currentTarget.value })
-    console.log(TransForm)
   }
 
   return (

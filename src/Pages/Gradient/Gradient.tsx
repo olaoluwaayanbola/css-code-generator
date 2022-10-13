@@ -18,7 +18,7 @@ export const Gradient = () => {
             <GradientControls />
           </div>
           <div className={GradientStyle.Display}>
-            <Preview form={form} />
+            <Preview form={form} type="Gradient" />
           </div>
         </div>
       </div>

@@ -22,8 +22,11 @@ export const contextFirst: React.Context<any> = createContext({})
 export const FirstContext = ({ children }: Props) => {
     const [code, setCode] = useState<any[]>([])
     const [handleSeleted, setSelected]: any = useState("No")
-    const [dark, setDark] = useState<boolean>(false)
+    const [dark, setDark] = useState<boolean>(true)
     const [color, setColor] = useState(`#b9b3b3`)
+    const [Handlecolors, SetColors] = useState({ background: '#7441e2' })
+    const [Handlecolorstwo, SetColorstwo] = useState({ background: '#823e3e' })
+    const [Handlecolorsthree, SetColorsthree] = useState<number>(75)
     const [form, setForm] = useState<Form>({
         inset: "No",
         Horizontaloffset: 0,
@@ -52,10 +55,16 @@ export const FirstContext = ({ children }: Props) => {
             setForm,
             color,
             setColor,
-            TransForm, 
+            TransForm,
             setTransForm,
             handleSeleted,
-            setSelected
+            setSelected,
+            Handlecolors,
+            SetColors,
+            Handlecolorstwo,
+            SetColorstwo,
+            Handlecolorsthree,
+            SetColorsthree
         }}>
             {children}
         </contextFirst.Provider>
