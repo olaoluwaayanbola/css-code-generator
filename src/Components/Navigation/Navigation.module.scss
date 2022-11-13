@@ -1,4 +1,5 @@
 @use "../../index" as index;
+@use "../../Pages/LandingPage/LandingPage.module.scss" as landingPage;
 
 .NavContainer {
   width: 98.8vw;
@@ -19,18 +20,32 @@
       justify-content: flex-start;
     }
     .HamburgerTitle {
-      position:relative;
-      .HamburgerBlock{
-        position:absolute;
-        left:0;
-        top:50px;
-        ul{
-          list-style-type:none;
-          padding:12px;
-          background:rgb(239, 233, 233);
-          border-radius:3px;
-          color:black
+      position: relative;
+      .HamburgerBlock {
+        position: absolute;
+        left: 0;
+        top: 50px;
+        ul {
+          min-width:12vw;
+          font-size: 15px;
+          padding: 20px 10px ;
+          color: #000000;
+          border-radius: 3px;
+          background: rgb(239, 233, 233);
+          list-style-type: none;
         }
+        li{
+          padding: 8px;
+          font-weight: bold;
+
+          margin-bottom: 8px;
+          border: 2px solid black;
+          color: rgb(225, 224, 224);
+          background-color: landingPage.$box-color;
+        }
+      }
+      li > *{
+        color: whitesmoke;  
       }
       .icon {
         width: 25px;
@@ -38,9 +53,13 @@
         margin-right: 10px;
         transition: ease-in-out;
       }
-      & > *:hover {
+      li:hover{
         cursor: pointer;
-        transform: scale(1.03);
+        background-color: landingPage.$box-background;
+      }
+      .icon:hover {
+        cursor: pointer;
+        transform: scale(1.05);
       }
       h3 {
         font-size: 16px;

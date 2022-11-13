@@ -7,6 +7,7 @@ import { GiHamburgerMenu } from "react-icons/gi"
 import { contextFirst } from '../../Context/Context'
 import { BsFillMoonStarsFill } from "react-icons/bs"
 import NavigationStyle from "./Navigation.module.scss"
+
 export const Navigation = () => {
     const darkMode = useContext(contextFirst)
     const { dark } = darkMode
