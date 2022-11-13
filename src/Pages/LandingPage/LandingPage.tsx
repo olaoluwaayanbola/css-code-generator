@@ -8,7 +8,7 @@ export const LandingPage = () => {
   const darkMode = useContext(contextFirst)
   const { dark } = darkMode
   return (
-    <div className={Landing.LandingContianer} style={{ background: `${dark ? "#251b25":"#d1d1d1"}` }}>
+    <div className={Landing.LandingContianer} style={{ background: `${dark ? "#251b25" : "#d1d1d1"}` }}>
       <div className={Landing.Navigation}>
         <Navigation />
       </div>

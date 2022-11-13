@@ -41,8 +41,9 @@ $box-background: #24398d;
       margin-top: 20px;
       flex-direction: column;
       .Box {
-        width: 60vw;
-        height: 60vh;
+        height: 20vh;
+        width: 55vw;
+        background-color: rebeccapurple;
       }
     }
   }
