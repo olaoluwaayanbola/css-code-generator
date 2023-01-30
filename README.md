@@ -1,15 +1,13 @@
-# Food Ordering App #
+# CSS Code Generator #
 <p>
-  An open-source food ordering app built with Next.js, MongoDB, and PayPal integration. Offers dark mode and various payment options. Use it as a base for your own       food ordering app or to learn about Next.js and MongoDB.
+  A CSS code generator built with React that generates custom CSS code snippets. This tool is useful for web developers because it can save time and improve efficiency by quickly generating CSS code for various styles.
 </p>
 
 ## Features ##
 <ol>
-  <li>Next.js frontend</li>
-  <li>MongoDB database</li>
-  <li>Dark mode</li>
-  <li>PayPal integration</li>
-  <li>Multiple payment options</li>
+  <li>Generates custom CSS code snippets</li>
+  <li>Built with React for a smooth user experience</li>
+  <li>Time-saving tool for web developers</li>
 </ol>
 
 ## Getting Started ##
@@ -20,12 +18,12 @@
 1. Clone the repository
 ---------------------
 ```
-$ git clone https://github.com//olaoluwaayanbola/odun-pizza
+$ git clone https://github.com/olaoluwaayanbola/css-code-generator
 ```
 2. Navigate to the directory:
 ---------------------
 ```
-$ cd odun-pizza
+$ cd css-code-generator
 ```
 3. Install dependencies:
 ---------------------
@@ -35,7 +33,7 @@ $ npm install
 4. Start the development server:
 ---------------------
 ```
-$ npm run dev
+$ npm start
  ```
  
 ## Contribute ##
