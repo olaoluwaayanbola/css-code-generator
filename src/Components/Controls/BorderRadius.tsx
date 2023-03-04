@@ -1,32 +1,31 @@
 import 'antd/dist/antd.css';
-import { useContext } from "react"
-import React, { useState } from 'react'
-import { ChromePicker } from 'react-color'
-import ControlStyle from "./Controls.module.scss"
-import { contextFirst } from "../../Context/Context"
-
+import { useContext } from 'react';
+import React, { useState } from 'react';
+import { ChromePicker } from 'react-color';
+import ControlStyle from './Controls.module.scss';
+import { contextFirst } from '../../Context/Context';
 
 export const BorderRadius = () => {
-  const boxContext = useContext<any>(contextFirst)
-  const [colortruth, setColortruth] = useState<boolean>(false)
-  const { color, setColor, form, setForm, handleSeleted, setSelected }: any = boxContext
+  const boxContext = useContext<any>(contextFirst);
+  const [colortruth, setColortruth] = useState<boolean>(false);
+  const { color, setColor, form, setForm, handleSeleted, setSelected }: any = boxContext;
 
   const handleColorChange = (color: any): void => {
-    setColor(color.hex)
-  }
+    setColor(color.hex);
+  };
   const handlecolordisplay = (): void => {
-    setColortruth(prev => !prev)
-  }
+    setColortruth((prev) => !prev);
+  };
   const Handleform = (event: React.FormEvent<HTMLInputElement>): void => {
-    setForm({ ...form, [event.currentTarget.name]: event.currentTarget.value })
-  }
+    setForm({ ...form, [event.currentTarget.name]: event.currentTarget.value });
+  };
 
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>): void => {
-    setSelected(event.currentTarget.value)
-  }
+    setSelected(event.currentTarget.value);
+  };
   return (
-    <div className={ControlStyle.ControlsContainer}>
-      <div className={ControlStyle.ControlBox}>
+    <main className={ControlStyle.ControlsContainer}>
+      <section className={ControlStyle.ControlBox}>
         <div className={ControlStyle.Header}>
           <h2>Options</h2>
         </div>
@@ -41,15 +40,14 @@ export const BorderRadius = () => {
             <option value="No">No</option>
           </select>
           <h3>Color</h3>
-          <div className={ControlStyle.colorConatainer} >
-            {
-              colortruth &&
+          <div className={ControlStyle.colorConatainer}>
+            {colortruth && (
               <ChromePicker
                 className={ControlStyle.Hexcolor}
                 color={color}
                 onChangeComplete={handleColorChange}
               />
-            }
+            )}
             <div
               className={ControlStyle.colorPicker}
               onClick={handlecolordisplay}
@@ -103,7 +101,7 @@ export const BorderRadius = () => {
             className={ControlStyle.input}
           />
         </div>
-      </div>
-    </div>
-  )
-}
+      </section>
+    </main>
+  );
+};
