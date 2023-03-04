@@ -1,17 +1,19 @@
-import React from 'react'
+import React from 'react';
 import 'antd/dist/antd.css';
-import { useContext } from "react"
-import ControlStyle from "./Controls.module.scss"
-import { contextFirst } from "../../Context/Context"
-
+import { useContext } from 'react';
+import ControlStyle from './Controls.module.scss';
+import { contextFirst } from '../../Context/Context';
 
 export const TransformControls = () => {
-  const boxContext = useContext<any>(contextFirst)
-  const { TransForm,setTransForm }: any = boxContext
+  const boxContext = useContext<any>(contextFirst);
+  const { TransForm, setTransForm }: any = boxContext;
 
   const Handleform = (event: React.FormEvent<HTMLInputElement>): void => {
-    setTransForm ({ ...TransForm, [event.currentTarget.name]: event.currentTarget.value })
-  }
+    setTransForm({
+      ...TransForm,
+      [event.currentTarget.name]: event.currentTarget.value,
+    });
+  };
 
   return (
     <div className={ControlStyle.ControlsContainer}>
@@ -86,6 +88,5 @@ export const TransformControls = () => {
         </div>
       </div>
     </div>
-  )
-}
-
+  );
+};
