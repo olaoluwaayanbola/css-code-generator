@@ -6,7 +6,7 @@ import { Navigation } from '../../Components/Navigation/Navigation';
 import { TransformControls } from '../../Components/Controls/TransformControl';
 export const Transform = () => {
   const boxContext = useContext(contextFirst);
-  const { form, setForm } = boxContext;
+  const { form } = boxContext;
   return (
     <div className={GradientStyle.Container}>
       <div className={GradientStyle.Navigation}>
