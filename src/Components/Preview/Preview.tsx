@@ -24,7 +24,7 @@ export const Preview = ({ form, type }: Props) => {
   const [copy, setCopy] = useState<boolean>(false);
   useMemo(() => {
     setCode([
-      `${handleSeleted == 'Yes' ? `inset` : ' '} ${form.Horizontaloffset}px ${
+      `${handleSeleted === 'Yes' ? `inset` : ' '} ${form.Horizontaloffset}px ${
         form.Verticaloffset
       }px ${form.Spread}px ${form.Blur}px ${color}`,
     ]);

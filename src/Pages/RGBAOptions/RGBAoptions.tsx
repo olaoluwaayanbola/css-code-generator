@@ -5,9 +5,8 @@ import { Preview } from '../../Components/Preview/Preview';
 import { Navigation } from '../../Components/Navigation/Navigation';
 import { RGBAControls } from '../../Components/Controls/RGBAControls';
 export const RGBAoptions = () => {
-  let type = 'background';
   const boxContext = useContext(contextFirst);
-  const { form, setForm, dark } = boxContext;
+  const { form, dark } = boxContext;
   return (
     <div
       className={GradientStyle.Container}
