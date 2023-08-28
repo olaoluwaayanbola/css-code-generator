@@ -12,7 +12,6 @@ export const GradientControls = () => {
     SetColors,
     Handlecolorstwo,
     SetColorstwo,
-    Handlecolorsthree,
     SetColorsthree,
   } = boxContext;
   const handleColorChange = (color: any): void => {
